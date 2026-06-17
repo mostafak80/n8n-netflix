@@ -53,6 +53,7 @@
         radial-gradient(circle at 50% 110%, rgba(25, 118, 255, .18), transparent 42%),
         linear-gradient(145deg, #050714 0%, #0b1022 45%, #101a34 100%);
       overflow-x: hidden;
+      top: 0 !important;
     }
 
     body::before {
@@ -176,6 +177,62 @@
       color: white;
       background: linear-gradient(135deg, var(--red), var(--red-2));
       box-shadow: 0 12px 28px rgba(229,9,20,.22);
+    }
+
+    .translate-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .translate-label {
+      color: var(--muted);
+      font-weight: 950;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    #google_translate_element {
+      min-width: 150px;
+    }
+
+    #google_translate_element select {
+      width: 100%;
+      max-width: 190px;
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 10px;
+      background: rgba(255,255,255,.12);
+      color: white;
+      font-weight: 800;
+      outline: none;
+    }
+
+    #google_translate_element select option {
+      color: #111;
+    }
+
+    .goog-logo-link,
+    .goog-te-gadget span {
+      display: none !important;
+    }
+
+    .goog-te-gadget {
+      color: transparent !important;
+      font-size: 0 !important;
+    }
+
+    .skiptranslate iframe {
+      display: none !important;
+    }
+
+    .notranslate {
+      unicode-bidi: isolate;
     }
 
     .support-top {
@@ -309,6 +366,24 @@
       border-color: rgba(255,209,102,.30);
       background: rgba(255,209,102,.08);
       color: #fff1bd;
+    }
+
+    .info-row.arrival {
+      border-color: rgba(40,213,255,.30);
+      background: rgba(40,213,255,.08);
+      color: #dff8ff;
+    }
+
+    .expire-note {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,209,102,.09);
+      border: 1px solid rgba(255,209,102,.25);
+      color: #fff1bd;
+      line-height: 1.65;
+      font-weight: 850;
+      text-align: center;
     }
 
     .hero-footer {
@@ -748,6 +823,19 @@
       .support-top {
         display: none;
       }
+
+      .translate-wrap {
+        width: 100%;
+        justify-content: center;
+      }
+
+      #google_translate_element {
+        flex: 1;
+      }
+
+      #google_translate_element select {
+        max-width: 100%;
+      }
     }
 
     @media (max-width: 560px) {
@@ -770,6 +858,7 @@
 
       .nav-actions {
         width: 100%;
+        flex-direction: column;
       }
 
       .lang-switch {
@@ -848,16 +937,21 @@
     <div class="shell">
       <header class="nav" aria-label="MOX Netflix Portal">
         <a class="brand" href="#" aria-label="MOX Netflix Portal">
-          <span class="brand-mark" aria-hidden="true">M</span>
-          <span class="brand-text">MOX Netflix Portal</span>
+          <span class="brand-mark notranslate" aria-hidden="true">M</span>
+          <span class="brand-text notranslate">MOX Netflix Portal</span>
         </a>
 
         <div class="nav-actions">
-          <a class="support-top" id="supportTop" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
+          <a class="support-top notranslate" id="supportTop" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
             💬 الدعم
           </a>
 
-          <div class="lang-switch" aria-label="Language switcher">
+          <div class="translate-wrap">
+            <span class="translate-label notranslate">🌐 All Languages</span>
+            <div id="google_translate_element"></div>
+          </div>
+
+          <div class="lang-switch notranslate" aria-label="Language switcher">
             <button type="button" class="lang-btn active" id="arBtn">العربية</button>
             <button type="button" class="lang-btn" id="enBtn">English</button>
           </div>
@@ -874,6 +968,10 @@
             </p>
 
             <div class="hero-list" aria-label="تعليمات الاستخدام">
+              <div class="info-row arrival">
+                <div class="info-icon">⏱️</div>
+                <div>أكواد تسجيل الدخول أو روابط تحديث السكن / تأكيد السفر بتوصلك هنا في الموقع بعد طلبك لها من Netflix بحوالي <strong>5 دقائق</strong>.</div>
+              </div>
               <div class="info-row">
                 <div class="info-icon">🔐</div>
                 <div>لو Netflix طلب كود تسجيل دخول، اضغط على زر <strong>عرض آخر كود</strong> واستخدم أحدث كود ظاهر أمامك.</div>
@@ -897,6 +995,10 @@
             </p>
 
             <div class="hero-list" aria-label="Usage instructions">
+              <div class="info-row arrival">
+                <div class="info-icon">⏱️</div>
+                <div>Login codes or household update / travel verification links appear here about <strong>5 minutes</strong> after you request them from Netflix.</div>
+              </div>
               <div class="info-row">
                 <div class="info-icon">🔐</div>
                 <div>If Netflix asks for a login code, tap <strong>Show latest code</strong> and use the newest code displayed.</div>
@@ -915,7 +1017,8 @@
           <div class="hero-footer" aria-label="Portal details">
             <span class="mini-pill">⚡ Fast access</span>
             <span class="mini-pill">📱 Mobile friendly</span>
-            <span class="mini-pill">🌐 Arabic / English</span>
+            <span class="mini-pill">🌐 All languages</span>
+            <span class="mini-pill">⏱️ Around 5 minutes</span>
             <span class="mini-pill">💬 WhatsApp support</span>
           </div>
         </section>
@@ -932,7 +1035,7 @@
                 <div class="card-icon icon-code" aria-hidden="true">🔐</div>
                 <div>
                   <h2 class="card-title" id="codeTitle">أكواد تسجيل الدخول</h2>
-                  <p class="hint" id="codeHint">لو Netflix طلب كود تسجيل دخول، اعرض آخر كود متاح.</p>
+                  <p class="hint" id="codeHint">بعد طلب الكود من Netflix، انتظر حوالي 5 دقائق ثم اعرض آخر كود متاح.</p>
                 </div>
               </div>
 
@@ -950,7 +1053,7 @@
                 <div class="card-icon icon-link" aria-hidden="true">🔗</div>
                 <div>
                   <h2 class="card-title" id="linkTitle">تحديث السكن / تأكيد السفر</h2>
-                  <p class="hint" id="linkHint">لو Netflix طلب تحديث السكن أو تأكيد السفر، اعرض آخر رابط.</p>
+                  <p class="hint" id="linkHint">بعد طلب الرابط من Netflix، انتظر حوالي 5 دقائق ثم اعرض آخر رابط متاح.</p>
                 </div>
               </div>
 
@@ -972,7 +1075,7 @@
                 </div>
               </div>
 
-              <a class="support-link" id="supportBtn" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
+              <a class="support-link notranslate" id="supportBtn" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
                 فتح محادثة واتساب
               </a>
             </article>
@@ -982,7 +1085,7 @@
     </div>
   </div>
 
-  <a class="support-float" id="supportFloat" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
+  <a class="support-float notranslate" id="supportFloat" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
     💬 الدعم عبر واتساب
   </a>
 
@@ -998,17 +1101,17 @@
       ar: {
         online: "الخدمة تعمل الآن",
         codeTitle: "أكواد تسجيل الدخول",
-        codeHint: "لو Netflix طلب كود تسجيل دخول، اعرض آخر كود متاح.",
+        codeHint: "بعد طلب الكود من Netflix، انتظر حوالي 5 دقائق ثم اعرض آخر كود متاح.",
         codeBtn: "عرض آخر كود",
         codeLoading: "جاري تحميل الكود...",
         codeEmpty: "لم يتم طلب الكود بعد.",
-        noCode: "لا يوجد كود متاح حاليًا. حاول مرة أخرى بعد وصول رسالة جديدة.",
+        noCode: "لا يوجد كود متاح حاليًا. بعد طلب الكود من Netflix، انتظر حوالي 5 دقائق ثم حاول مرة أخرى.",
         linkTitle: "تحديث السكن / تأكيد السفر",
-        linkHint: "لو Netflix طلب تحديث السكن أو تأكيد السفر، اعرض آخر رابط.",
+        linkHint: "بعد طلب الرابط من Netflix، انتظر حوالي 5 دقائق ثم اعرض آخر رابط متاح.",
         linkBtn: "عرض آخر رابط",
         linkLoading: "جاري تحميل الرابط...",
         linkEmpty: "لم يتم طلب الرابط بعد.",
-        noLink: "لا يوجد رابط متاح حاليًا. حاول مرة أخرى بعد وصول رسالة جديدة.",
+        noLink: "لا يوجد رابط متاح حاليًا. بعد طلب الرابط من Netflix، انتظر حوالي 5 دقائق ثم حاول مرة أخرى.",
         supportTop: "💬 الدعم",
         supportTitle: "التواصل مع الدعم",
         supportHint: "لو عندك مشكلة في الكود أو الرابط، تواصل معنا مباشرة عبر واتساب.",
@@ -1025,22 +1128,26 @@
         openLink: "فتح الرابط",
         defaultError: "لا توجد بيانات متاحة حاليًا.",
         linkHousehold: "تحديث السكن",
-        linkTravel: "تأكيد السفر"
+        linkTravel: "تأكيد السفر",
+        codeExpire: "استخدم الكود خلال 15 دقيقة فقط.",
+        codeExpireEn: "Use this code within 15 minutes only.",
+        linkExpire: "استخدم الرابط خلال 15 دقيقة فقط.",
+        linkExpireEn: "Use this link within 15 minutes only."
       },
       en: {
         online: "Service is online",
         codeTitle: "Login Codes",
-        codeHint: "If Netflix asks for a login code, show the latest available code.",
+        codeHint: "After requesting the code from Netflix, wait about 5 minutes then show the latest available code.",
         codeBtn: "Show latest code",
         codeLoading: "Loading code...",
         codeEmpty: "No code requested yet.",
-        noCode: "No code is available right now. Try again after a new message arrives.",
+        noCode: "No code is available right now. After requesting the code from Netflix, wait about 5 minutes and try again.",
         linkTitle: "Household Update / Travel Verification",
-        linkHint: "If Netflix asks for household update or travel verification, show the latest link.",
+        linkHint: "After requesting the link from Netflix, wait about 5 minutes then show the latest available link.",
         linkBtn: "Show latest link",
         linkLoading: "Loading link...",
         linkEmpty: "No link requested yet.",
-        noLink: "No link is available right now. Try again after a new message arrives.",
+        noLink: "No link is available right now. After requesting the link from Netflix, wait about 5 minutes and try again.",
         supportTop: "💬 Support",
         supportTitle: "Contact Support",
         supportHint: "If you have an issue with the code or link, contact us directly on WhatsApp.",
@@ -1057,7 +1164,11 @@
         openLink: "Open link",
         defaultError: "No data is available right now.",
         linkHousehold: "Household Update",
-        linkTravel: "Travel Verification"
+        linkTravel: "Travel Verification",
+        codeExpire: "Use this code within 15 minutes only.",
+        codeExpireEn: "Use this code within 15 minutes only.",
+        linkExpire: "Use this link within 15 minutes only.",
+        linkExpireEn: "Use this link within 15 minutes only."
       }
     };
 
@@ -1248,13 +1359,18 @@
       }
 
       const spaced = code.split("").join(" ");
+
       setResult("code", `
-        <div class="code-box">${escapeHtml(spaced)}</div>
+        <div class="code-box notranslate">${escapeHtml(spaced)}</div>
         <div class="meta">
           <span>${escapeHtml(t.updated)}:</span>
           <strong>${escapeHtml(formatDate(data.updatedAt))}</strong>
         </div>
-        <button type="button" class="ghost-btn" data-copy-code="${escapeHtml(code)}">${escapeHtml(t.copyCode)}</button>
+        <div class="expire-note">
+          ${escapeHtml(t.codeExpire)}<br>
+          <span class="notranslate">${escapeHtml(t.codeExpireEn)}</span>
+        </div>
+        <button type="button" class="ghost-btn notranslate" data-copy-code="${escapeHtml(code)}">${escapeHtml(t.copyCode)}</button>
       `, "active");
 
       els.codeResult.dataset.loaded = "true";
@@ -1279,8 +1395,12 @@
           <span>${escapeHtml(t.updated)}:</span>
           <strong>${escapeHtml(formatDate(data.updatedAt))}</strong>
         </div>
-        <span class="link-preview">${escapeHtml(link)}</span>
-        <a class="open-link" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t.openLink)}</a>
+        <span class="link-preview notranslate">${escapeHtml(link)}</span>
+        <div class="expire-note">
+          ${escapeHtml(t.linkExpire)}<br>
+          <span class="notranslate">${escapeHtml(t.linkExpireEn)}</span>
+        </div>
+        <a class="open-link notranslate" href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer">${escapeHtml(t.openLink)}</a>
       `, "active");
 
       els.linkResult.dataset.loaded = "true";
@@ -1312,5 +1432,19 @@
 
     setLanguage("ar");
   </script>
+
+  <script>
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        {
+          pageLanguage: "ar",
+          autoDisplay: false
+        },
+        "google_translate_element"
+      );
+    }
+  </script>
+
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
