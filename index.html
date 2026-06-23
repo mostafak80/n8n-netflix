@@ -235,29 +235,6 @@
       unicode-bidi: isolate;
     }
 
-    .support-top {
-      min-height: 42px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      text-decoration: none;
-      color: white;
-      font-weight: 950;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #16a34a, #22c55e);
-      box-shadow: 0 12px 28px rgba(34,197,94,.22);
-      border: 1px solid rgba(255,255,255,.14);
-      white-space: nowrap;
-      transition: .18s ease;
-    }
-
-    .support-top:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.06);
-    }
-
     .hero-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.08fr) minmax(360px, .92fr);
@@ -543,10 +520,6 @@
       background: linear-gradient(135deg, rgba(40,213,255,.25), rgba(25,118,255,.12));
     }
 
-    .icon-support {
-      background: linear-gradient(135deg, rgba(34,197,94,.25), rgba(22,163,74,.12));
-    }
-
     .card-title {
       margin: 0;
       font-size: clamp(20px, 2.4vw, 24px);
@@ -560,7 +533,7 @@
       font-size: 14px;
     }
 
-    .primary-btn, .ghost-btn, .open-link, .support-link {
+    .primary-btn, .ghost-btn, .open-link {
       position: relative;
       width: 100%;
       min-height: 54px;
@@ -580,17 +553,17 @@
       touch-action: manipulation;
     }
 
-    .primary-btn:hover, .ghost-btn:hover, .open-link:hover, .support-link:hover {
+    .primary-btn:hover, .ghost-btn:hover, .open-link:hover:hover {
       transform: translateY(-1px);
       filter: brightness(1.07);
     }
 
-    .primary-btn:active, .ghost-btn:active, .open-link:active, .support-link:active {
+    .primary-btn:active, .ghost-btn:active, .open-link:active:active {
       transform: translateY(0);
       filter: brightness(.98);
     }
 
-    .primary-btn:focus-visible, .ghost-btn:focus-visible, .open-link:focus-visible, .lang-btn:focus-visible, .support-link:focus-visible, .support-top:focus-visible {
+    .primary-btn:focus-visible, .ghost-btn:focus-visible, .open-link:focus-visible, .lang-btn:focus-visible:focus-visible {
       outline: 3px solid rgba(40,213,255,.35);
       outline-offset: 3px;
     }
@@ -609,11 +582,6 @@
     .btn-link {
       background: linear-gradient(135deg, #0d74ff, var(--cyan));
       box-shadow: 0 16px 36px rgba(40,213,255,.18);
-    }
-
-    .support-link {
-      background: linear-gradient(135deg, #128c7e, #25d366);
-      box-shadow: 0 16px 36px rgba(37,211,102,.18);
     }
 
     .ghost-btn {
@@ -747,38 +715,6 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    .support-float {
-      position: fixed;
-      right: 18px;
-      bottom: max(18px, env(safe-area-inset-bottom));
-      z-index: 80;
-      width: auto;
-      min-height: 54px;
-      padding: 14px 18px;
-      border-radius: 999px;
-      color: white;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      font-weight: 1000;
-      background: linear-gradient(135deg, #128c7e, #25d366);
-      box-shadow: 0 18px 48px rgba(37,211,102,.28);
-      border: 1px solid rgba(255,255,255,.16);
-      transition: .18s ease;
-    }
-
-    .support-float:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.06);
-    }
-
-    [dir="rtl"] .support-float {
-      right: auto;
-      left: 18px;
-    }
-
     [hidden] { display: none !important; }
     [data-lang="en"] { direction: ltr; text-align: left; }
     [data-lang="ar"] { direction: rtl; text-align: right; }
@@ -852,13 +788,9 @@
         border-radius: 18px;
       }
 
-      .primary-btn, .ghost-btn, .open-link, .support-link {
+      .primary-btn, .ghost-btn, .open-link {
         min-height: 56px;
         font-size: 16px;
-      }
-
-      .support-top {
-        display: none;
       }
 
       .translate-wrap {
@@ -948,18 +880,6 @@
         letter-spacing: .12em;
         font-size: clamp(34px, 12vw, 52px);
       }
-
-      .support-float {
-        left: 10px;
-        right: 10px;
-        width: calc(100% - 20px);
-        border-radius: 20px;
-      }
-
-      [dir="rtl"] .support-float {
-        left: 10px;
-        right: 10px;
-      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -983,9 +903,6 @@
         </a>
 
         <div class="nav-actions">
-          <a class="support-top notranslate" id="supportTop" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
-            💬 الدعم
-          </a>
 
           <div class="translate-wrap">
             <span class="translate-label notranslate">🌐 All Languages</span>
@@ -1034,7 +951,7 @@
                 <li>ادخل على الحساب <span class="notranslate">(Account)</span>.</li>
                 <li>روح إلى <span class="notranslate">Netflix Household / Household</span>.</li>
                 <li>اختار تحديث السكن <span class="notranslate">(Update Household)</span>.</li>
-                <li>هيوصلك الرابط على الموقع أو التيليجرام بعد حوالي 5 دقائق.</li>
+                <li>هيوصلك الرابط هنا في الموقع بعد حوالي 5 دقائق.</li>
                 <li>ادخل على الرابط للتأكيد.</li>
                 <li>كده يتم تحديث السكن بنجاح.</li>
               </ol>
@@ -1080,7 +997,7 @@
                 <li>Go to <span class="notranslate">Account</span>.</li>
                 <li>Go to <span class="notranslate">Netflix Household / Household</span>.</li>
                 <li>Choose <span class="notranslate">Update Household</span>.</li>
-                <li>The link will arrive on the website or Telegram after about 5 minutes.</li>
+                <li>The link will appear here on the website after about 5 minutes.</li>
                 <li>Open the link to confirm.</li>
                 <li>Your household update will be completed.</li>
               </ol>
@@ -1098,7 +1015,6 @@
             <span class="mini-pill">📱 Mobile friendly</span>
             <span class="mini-pill">🌐 All languages</span>
             <span class="mini-pill">⏱️ Around 5 minutes</span>
-            <span class="mini-pill">💬 WhatsApp support</span>
           </div>
         </section>
 
@@ -1144,29 +1060,11 @@
                 لم يتم طلب الرابط بعد.
               </div>
             </article>
-
-            <article class="action-card">
-              <div class="card-head">
-                <div class="card-icon icon-support" aria-hidden="true">💬</div>
-                <div>
-                  <h2 class="card-title" id="supportTitle">التواصل مع الدعم</h2>
-                  <p class="hint" id="supportHint">لو عندك مشكلة في الكود أو الرابط، تواصل معنا مباشرة عبر واتساب.</p>
-                </div>
-              </div>
-
-              <a class="support-link notranslate" id="supportBtn" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
-                فتح محادثة واتساب
-              </a>
-            </article>
           </div>
         </section>
       </main>
     </div>
   </div>
-
-  <a class="support-float notranslate" id="supportFloat" href="https://wa.me/qr/TSTYFSPWIQQSL1" target="_blank" rel="noopener noreferrer">
-    💬 الدعم عبر واتساب
-  </a>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
@@ -1190,11 +1088,6 @@
         linkLoading: "جاري تحميل الرابط...",
         linkEmpty: "لم يتم طلب الرابط بعد.",
         noLink: "لا يوجد رابط متاح حاليًا. بعد طلب الرابط من Netflix، انتظر حوالي 5 دقائق ثم حاول مرة أخرى.",
-        supportTop: "💬 الدعم",
-        supportTitle: "التواصل مع الدعم",
-        supportHint: "لو عندك مشكلة في الكود أو الرابط، تواصل معنا مباشرة عبر واتساب.",
-        supportBtn: "فتح محادثة واتساب",
-        supportFloat: "💬 الدعم عبر واتساب",
         wait: "يرجى الانتظار...",
         error: "حدث خطأ في الاتصال. حاول مرة أخرى بعد قليل.",
         timeout: "الاتصال استغرق وقتًا طويلًا. حاول مرة أخرى.",
@@ -1226,11 +1119,6 @@
         linkLoading: "Loading link...",
         linkEmpty: "No link requested yet.",
         noLink: "No link is available right now. After requesting the link from Netflix, wait about 5 minutes and try again.",
-        supportTop: "💬 Support",
-        supportTitle: "Contact Support",
-        supportHint: "If you have an issue with the code or link, contact us directly on WhatsApp.",
-        supportBtn: "Open WhatsApp chat",
-        supportFloat: "💬 WhatsApp Support",
         wait: "Please wait...",
         error: "Connection error. Please try again later.",
         timeout: "The connection took too long. Please try again.",
@@ -1265,11 +1153,6 @@
       linkHint: document.getElementById("linkHint"),
       linkBtn: document.getElementById("linkBtn"),
       linkResult: document.getElementById("linkResult"),
-      supportTop: document.getElementById("supportTop"),
-      supportTitle: document.getElementById("supportTitle"),
-      supportHint: document.getElementById("supportHint"),
-      supportBtn: document.getElementById("supportBtn"),
-      supportFloat: document.getElementById("supportFloat"),
       clock: document.getElementById("clock"),
       toast: document.getElementById("toast")
     };
@@ -1300,11 +1183,6 @@
       els.linkHint.textContent = t.linkHint;
       els.linkBtn.textContent = t.linkBtn;
 
-      els.supportTop.textContent = t.supportTop;
-      els.supportTitle.textContent = t.supportTitle;
-      els.supportHint.textContent = t.supportHint;
-      els.supportBtn.textContent = t.supportBtn;
-      els.supportFloat.textContent = t.supportFloat;
 
       if (!els.codeResult.dataset.loaded) {
         setResult("code", t.codeEmpty, "empty");
