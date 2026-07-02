@@ -715,153 +715,6 @@
       transform: translateX(-50%) translateY(0);
     }
 
-
-
-    .auth-screen {
-      position: relative;
-      min-height: 100vh;
-      min-height: 100svh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 22px;
-      isolation: isolate;
-    }
-
-    .auth-screen::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      opacity: .28;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(229, 9, 20, .35), transparent 34%),
-        radial-gradient(circle at 90% 6%, rgba(40, 213, 255, .22), transparent 32%),
-        radial-gradient(circle at 50% 110%, rgba(25, 118, 255, .20), transparent 46%);
-      z-index: -1;
-    }
-
-    .auth-card {
-      width: min(100%, 460px);
-      padding: clamp(22px, 4vw, 34px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.065));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      text-align: center;
-    }
-
-    .auth-logo {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 16px;
-      border-radius: 22px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      box-shadow: 0 16px 36px rgba(229, 9, 20, .34);
-      font-weight: 1000;
-      font-size: 24px;
-    }
-
-    .auth-title {
-      margin: 0 0 8px;
-      font-size: clamp(26px, 6vw, 36px);
-      line-height: 1.15;
-      letter-spacing: -.03em;
-    }
-
-    .auth-subtitle {
-      margin: 0 0 20px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .auth-input {
-      width: 100%;
-      min-height: 58px;
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 18px;
-      outline: none;
-      padding: 16px 18px;
-      color: #fff;
-      background: rgba(0,0,0,.22);
-      text-align: center;
-      direction: ltr;
-      font-size: 18px;
-      font-weight: 900;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .auth-input::placeholder {
-      color: rgba(255,255,255,.42);
-      text-transform: none;
-      letter-spacing: 0;
-    }
-
-    .auth-submit {
-      margin-top: 14px;
-      width: 100%;
-      min-height: 56px;
-      border: 0;
-      border-radius: 18px;
-      color: #fff;
-      background: linear-gradient(135deg, var(--red), var(--red-2));
-      box-shadow: 0 16px 36px rgba(229,9,20,.24);
-      font-weight: 1000;
-      font-size: 17px;
-      cursor: pointer;
-    }
-
-    .auth-submit:disabled {
-      opacity: .7;
-      cursor: wait;
-    }
-
-    .auth-message {
-      min-height: 24px;
-      margin-top: 14px;
-      color: #ffd2d2;
-      line-height: 1.6;
-      font-weight: 850;
-    }
-
-    .auth-message.success {
-      color: #b7ffd8;
-    }
-
-    .auth-note {
-      margin-top: 18px;
-      padding: 12px 14px;
-      border-radius: 16px;
-      background: rgba(255,209,102,.09);
-      border: 1px solid rgba(255,209,102,.22);
-      color: #fff1bd;
-      line-height: 1.65;
-      font-weight: 800;
-      font-size: 13px;
-    }
-
-    .logout-btn {
-      border: 0;
-      color: #eef6ff;
-      background: rgba(255,255,255,.10);
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 999px;
-      padding: 10px 14px;
-      min-height: 42px;
-      cursor: pointer;
-      font-weight: 950;
-      transition: .18s ease;
-      white-space: nowrap;
-    }
-
-    .logout-btn:hover {
-      background: rgba(255,255,255,.16);
-    }
-
     [hidden] { display: none !important; }
     [data-lang="en"] { direction: ltr; text-align: left; }
     [data-lang="ar"] { direction: rtl; text-align: right; }
@@ -1041,30 +894,7 @@
 </head>
 
 <body>
-  <section class="auth-screen" id="authScreen" aria-label="Subscription login">
-    <form class="auth-card" id="authForm" autocomplete="off">
-      <div class="auth-logo notranslate" aria-hidden="true">M</div>
-      <h1 class="auth-title" id="authTitle">دخول المشتركين</h1>
-      <p class="auth-subtitle" id="authSubtitle">ادخل كود الاشتراك الخاص بك لفتح بوابة MOX Netflix.</p>
-
-      <input
-        class="auth-input notranslate"
-        id="subscriptionCode"
-        name="subscriptionCode"
-        type="text"
-        inputmode="text"
-        placeholder="MOX-A7K9-P2Q4"
-        autocomplete="one-time-code"
-        aria-label="Subscription code"
-      />
-
-      <button type="submit" class="auth-submit" id="authSubmit">دخول</button>
-      <div class="auth-message" id="authMessage" role="status" aria-live="polite"></div>
-      <div class="auth-note" id="authNote">هذه الصفحة مخصصة للمشتركين فقط. إذا انتهى اشتراكك لن تتمكن من عرض الأكواد أو الروابط.</div>
-    </form>
-  </section>
-
-  <div class="page" id="mainPage" style="display:none">
+  <div class="page">
     <div class="shell">
       <header class="nav" aria-label="MOX Netflix Portal">
         <a class="brand" href="#" aria-label="MOX Netflix Portal">
@@ -1083,8 +913,6 @@
             <button type="button" class="lang-btn active" id="arBtn">العربية</button>
             <button type="button" class="lang-btn" id="enBtn">English</button>
           </div>
-
-          <button type="button" class="logout-btn" id="logoutBtn">تسجيل الخروج</button>
         </div>
       </header>
 
@@ -1275,18 +1103,7 @@
         codeExpire: "استخدم الكود خلال 15 دقيقة فقط.",
         codeExpireEn: "Use this code within 15 minutes only.",
         linkExpire: "استخدم الرابط خلال 15 دقيقة فقط.",
-        linkExpireEn: "Use this link within 15 minutes only.",
-        authTitle: "دخول المشتركين",
-        authSubtitle: "ادخل كود الاشتراك الخاص بك لفتح بوابة MOX Netflix.",
-        authSubmit: "دخول",
-        authChecking: "جاري التحقق...",
-        authEmpty: "اكتب كود الاشتراك أولًا.",
-        authSuccess: "تم الدخول بنجاح.",
-        authInvalid: "الكود غير صحيح أو الاشتراك منتهي.",
-        authError: "حدث خطأ في الاتصال. حاول مرة أخرى.",
-        authNote: "هذه الصفحة مخصصة للمشتركين فقط. إذا انتهى اشتراكك لن تتمكن من عرض الأكواد أو الروابط.",
-        sessionExpired: "انتهت الجلسة أو الاشتراك. برجاء تسجيل الدخول مرة أخرى.",
-        logout: "تسجيل الخروج"
+        linkExpireEn: "Use this link within 15 minutes only."
       },
       en: {
         online: "Service is online",
@@ -1317,18 +1134,7 @@
         codeExpire: "Use this code within 15 minutes only.",
         codeExpireEn: "Use this code within 15 minutes only.",
         linkExpire: "Use this link within 15 minutes only.",
-        linkExpireEn: "Use this link within 15 minutes only.",
-        authTitle: "Subscribers Login",
-        authSubtitle: "Enter your subscription code to open the MOX Netflix Portal.",
-        authSubmit: "Login",
-        authChecking: "Checking...",
-        authEmpty: "Please enter your subscription code first.",
-        authSuccess: "Login successful.",
-        authInvalid: "Invalid code or expired subscription.",
-        authError: "Connection error. Please try again.",
-        authNote: "This page is for subscribers only. If your subscription expires, you will not be able to view codes or links.",
-        sessionExpired: "Session or subscription expired. Please login again.",
-        logout: "Logout"
+        linkExpireEn: "Use this link within 15 minutes only."
       }
     };
 
@@ -1348,28 +1154,13 @@
       linkBtn: document.getElementById("linkBtn"),
       linkResult: document.getElementById("linkResult"),
       clock: document.getElementById("clock"),
-      toast: document.getElementById("toast"),
-      authScreen: document.getElementById("authScreen"),
-      mainPage: document.getElementById("mainPage"),
-      authForm: document.getElementById("authForm"),
-      subscriptionCode: document.getElementById("subscriptionCode"),
-      authTitle: document.getElementById("authTitle"),
-      authSubtitle: document.getElementById("authSubtitle"),
-      authSubmit: document.getElementById("authSubmit"),
-      authMessage: document.getElementById("authMessage"),
-      authNote: document.getElementById("authNote"),
-      logoutBtn: document.getElementById("logoutBtn")
+      toast: document.getElementById("toast")
     };
 
     els.arBtn.addEventListener("click", () => setLanguage("ar"));
     els.enBtn.addEventListener("click", () => setLanguage("en"));
     els.codeBtn.addEventListener("click", () => loadData("code"));
     els.linkBtn.addEventListener("click", () => loadData("link"));
-    els.logoutBtn.addEventListener("click", logout);
-    els.authForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      loginWithCode();
-    });
 
     function setLanguage(lang) {
       currentLang = lang;
@@ -1391,11 +1182,7 @@
       els.linkTitle.textContent = t.linkTitle;
       els.linkHint.textContent = t.linkHint;
       els.linkBtn.textContent = t.linkBtn;
-      els.logoutBtn.textContent = t.logout;
-      els.authTitle.textContent = t.authTitle;
-      els.authSubtitle.textContent = t.authSubtitle;
-      els.authSubmit.textContent = t.authSubmit;
-      els.authNote.textContent = t.authNote;
+
 
       if (!els.codeResult.dataset.loaded) {
         setResult("code", t.codeEmpty, "empty");
@@ -1466,151 +1253,6 @@
       `;
     }
 
-    function getSavedToken() {
-      return localStorage.getItem("mox_access_token") || "";
-    }
-
-    function saveSession(data) {
-      localStorage.setItem("mox_access_token", data.token);
-      if (data.expiresAt) localStorage.setItem("mox_expires_at", data.expiresAt);
-      if (data.customerName) localStorage.setItem("mox_customer_name", data.customerName);
-    }
-
-    function clearSession() {
-      localStorage.removeItem("mox_access_token");
-      localStorage.removeItem("mox_expires_at");
-      localStorage.removeItem("mox_customer_name");
-    }
-
-    function setAuthMessage(message, state = "error") {
-      els.authMessage.textContent = message || "";
-      els.authMessage.classList.toggle("success", state === "success");
-    }
-
-    function setAuthLoading(isLoading) {
-      els.authSubmit.disabled = isLoading;
-      els.authSubmit.textContent = isLoading ? i18n[currentLang].authChecking : i18n[currentLang].authSubmit;
-    }
-
-    function showMainPage() {
-      els.authScreen.style.display = "none";
-      els.mainPage.style.display = "flex";
-    }
-
-    function showAuthScreen(message = "") {
-      els.mainPage.style.display = "none";
-      els.authScreen.style.display = "flex";
-      if (message) setAuthMessage(message);
-      setTimeout(() => els.subscriptionCode.focus(), 80);
-    }
-
-    function logout() {
-      clearSession();
-      setAuthMessage("");
-      els.subscriptionCode.value = "";
-      showAuthScreen();
-    }
-
-    async function loginWithCode() {
-      const t = i18n[currentLang];
-      const code = els.subscriptionCode.value.trim().toUpperCase();
-
-      if (!code) {
-        setAuthMessage(t.authEmpty);
-        els.subscriptionCode.focus();
-        return;
-      }
-
-      setAuthLoading(true);
-      setAuthMessage(t.authChecking, "success");
-
-      try {
-        const res = await fetchWithTimeout(N8N_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            action: "login",
-            code,
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "Africa/Cairo"
-          })
-        });
-
-        let data;
-        try {
-          data = await res.json();
-        } catch (_) {
-          data = { ok: false, message: t.authInvalid };
-        }
-
-        if (!res.ok || !data.ok || !data.token) {
-          clearSession();
-          setAuthMessage(data.message || t.authInvalid);
-          return;
-        }
-
-        saveSession(data);
-        setAuthMessage(t.authSuccess, "success");
-        showMainPage();
-      } catch (err) {
-        const message = err && err.name === "AbortError" ? t.timeout : t.authError;
-        setAuthMessage(message);
-      } finally {
-        setAuthLoading(false);
-      }
-    }
-
-    async function checkSavedSession() {
-      const token = getSavedToken();
-      if (!token) {
-        showAuthScreen();
-        return;
-      }
-
-      try {
-        const res = await fetchWithTimeout(N8N_ENDPOINT, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": "Bearer " + token
-          },
-          body: JSON.stringify({ action: "checkSession" })
-        });
-
-        let data;
-        try {
-          data = await res.json();
-        } catch (_) {
-          data = { ok: false };
-        }
-
-        if (res.ok && data.ok) {
-          showMainPage();
-          return;
-        }
-
-        clearSession();
-        showAuthScreen(data.message || i18n[currentLang].sessionExpired);
-      } catch (_) {
-        clearSession();
-        showAuthScreen(i18n[currentLang].sessionExpired);
-      }
-    }
-
-    function getAuthHeaders() {
-      const token = getSavedToken();
-      if (!token) return null;
-
-      return {
-        "Content-Type": "application/json",
-        "Authorization": "Bearer " + token
-      };
-    }
-
-    function handleAuthFailure(message) {
-      clearSession();
-      showAuthScreen(message || i18n[currentLang].sessionExpired);
-    }
-
     async function fetchWithTimeout(url, options = {}, timeoutMs = 18000) {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -1625,12 +1267,6 @@
     async function loadData(type) {
       const t = i18n[currentLang];
       const btn = type === "code" ? els.codeBtn : els.linkBtn;
-      const headers = getAuthHeaders();
-
-      if (!headers) {
-        handleAuthFailure(t.sessionExpired);
-        return;
-      }
 
       btn.disabled = true;
       btn.textContent = type === "code" ? t.codeLoading : t.linkLoading;
@@ -1639,7 +1275,7 @@
       try {
         const res = await fetchWithTimeout(N8N_ENDPOINT, {
           method: "POST",
-          headers,
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ action: type })
         });
 
@@ -1648,11 +1284,6 @@
           data = await res.json();
         } catch (_) {
           data = { ok: false, message: t.defaultError };
-        }
-
-        if (res.status === 401 || res.status === 403 || data.code === "AUTH_EXPIRED") {
-          handleAuthFailure(data.message || t.sessionExpired);
-          return;
         }
 
         if (!res.ok || !data.ok) {
@@ -1756,7 +1387,6 @@
     }
 
     setLanguage("ar");
-    checkSavedSession();
   </script>
 
   <script>
